@@ -1,5 +1,20 @@
-### v0.4.0 
+### v0.4.0
 (IN PROGRESS)
+
+Major change(s):
+
+- Support Mercurial (`hg`) and Fossil (`fossil`) dependencies from `shard.lock`, in
+  addition to Git.
+- Emit `type = "hg"` or `type = "fossil"` in `shards.nix` for non-Git sources so
+  nixpkgs can select `fetchhg` / `fetchFossil`.
+- Git entries remain unchanged for compatibility with existing `fetchgit` usage.
+
+Minor change(s):
+
+- Add offline unit tests for lock parsing, output formatting, and prefetch output parsing.
+- Add online integration tests (enabled with `CRYSTAL2NIX_ONLINE_TESTS=1` or the
+  `checks.specs-online` flake check) that run real `nix-prefetch-*` commands.
+- Document VCS support and nixpkgs integration in the README.
 
 ### v0.3.1 2025-07-09
 

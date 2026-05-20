@@ -1,0 +1,5 @@
+version: 2.0
+shards:
+  docmessage:
+    fossil: https://chiselapp.com/user/rkeene/repository/docmessage
+    version: 1.0.0

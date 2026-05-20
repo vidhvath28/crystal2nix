@@ -14,7 +14,13 @@ nix: build
 
 .PHONY: check
 check: $(BINARY)
-	@crystal spec
+	@shards install
+	@crystal spec spec/repo_spec.cr spec/prefetch_spec.cr spec/shards_nix_spec.cr
+
+.PHONY: test-online
+test-online: $(BINARY)
+	@shards install
+	@CRYSTAL2NIX_ONLINE_TESTS=1 crystal spec spec/integration_spec.cr
 
 .PHONY: clean
 clean:

@@ -1,0 +1,5 @@
+version: 2.0
+shards:
+  hello:
+    hg: https://www.mercurial-scm.org/repo/hello
+    version: 0.0.0

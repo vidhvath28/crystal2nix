@@ -1,0 +1,5 @@
+version: 2.0
+shards:
+  transliterator:
+    git: https://github.com/cadmiumcr/transliterator.git
+    version: 0.1.0+git.commit.46c4c14594057dbcfaf27e7e7c8c164d3f0ce3f1

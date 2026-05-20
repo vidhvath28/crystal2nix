@@ -3,7 +3,7 @@ name: Crystal CI
 on: [push, pull_request]
 
 jobs:
-  tests:
+  build:
     strategy:
       fail-fast: false
       matrix:
@@ -16,7 +16,9 @@ jobs:
         with:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - name: Build
+      - name: Build package
         run: nix build .#crystal2nix
-      - name: Run tests
-        run: nix flake check
+      - name: Run offline tests
+        run: nix build .#checks.specs-offline --print-build-logs
+      - name: Run online prefetch tests
+        run: nix develop -c make test-online
